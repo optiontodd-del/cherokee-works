@@ -1,0 +1,17 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[env.production]
+  ADMIN_EMAIL = "admin@cherokee-works.local"
+  ADMIN_PASSWORD_HASH = "494a715f7e9b4071aca61bac42ca858a309524e5864f0920030862a4ae7589be"
+
+[functions."admin-auth"]
+  node_bundler = "esbuild"
+
+[functions."admin-jobs"]
+  node_bundler = "esbuild"
+
+[functions."admin-analytics"]
+  node_bundler = "esbuild"
