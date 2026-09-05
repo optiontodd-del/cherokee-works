@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { useNavigate } from '@tanstack/react-router'
+import { useNavigate, createFileRoute } from '@tanstack/react-router'
 
-export default function AdminLogin() {
+function AdminLogin() {
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -103,3 +103,7 @@ export default function AdminLogin() {
     </div>
   )
 }
+
+export const Route = createFileRoute('/admin/login')({
+  component: AdminLogin,
+})

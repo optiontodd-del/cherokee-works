@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { createFileRoute } from '@tanstack/react-router'
 
 interface PendingJob {
   id: string
@@ -8,7 +9,7 @@ interface PendingJob {
   status: 'pending' | 'approved' | 'rejected'
 }
 
-export default function AdminModeration() {
+function AdminModeration() {
   const [queue] = useState<PendingJob[]>([
     {
       id: '1',
@@ -102,3 +103,7 @@ export default function AdminModeration() {
     </div>
   )
 }
+
+export const Route = createFileRoute('/admin/moderation')({
+  component: AdminModeration,
+})

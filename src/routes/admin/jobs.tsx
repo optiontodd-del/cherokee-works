@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { createFileRoute } from '@tanstack/react-router'
 
 interface Job {
   id: string
@@ -11,7 +12,7 @@ interface Job {
   view_count?: number
 }
 
-export default function AdminJobs() {
+function AdminJobs() {
   const [jobs, setJobs] = useState<Job[]>([])
   const [loading, setLoading] = useState(true)
   const [showForm, setShowForm] = useState(false)
@@ -249,3 +250,7 @@ export default function AdminJobs() {
     </div>
   )
 }
+
+export const Route = createFileRoute('/admin/jobs')({
+  component: AdminJobs,
+})

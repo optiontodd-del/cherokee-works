@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { createFileRoute } from '@tanstack/react-router'
 
 interface OverviewStats {
   total_views: number
@@ -16,7 +17,7 @@ interface TrendingItem {
   views?: number
 }
 
-export default function AdminDashboard() {
+function AdminDashboard() {
   const [stats, setStats] = useState<OverviewStats | null>(null)
   const [trending, setTrending] = useState<{ top_categories: TrendingItem[], top_locations: TrendingItem[], most_viewed_jobs: TrendingItem[] }>({ top_categories: [], top_locations: [], most_viewed_jobs: [] })
   const [loading, setLoading] = useState(true)
@@ -160,3 +161,7 @@ function ActionButton({ label, href }: ActionButtonProps) {
     </a>
   )
 }
+
+export const Route = createFileRoute('/admin/dashboard')({
+  component: AdminDashboard,
+})

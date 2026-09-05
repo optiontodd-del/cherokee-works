@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { createFileRoute } from '@tanstack/react-router'
 
 interface User {
   id: string
@@ -10,7 +11,7 @@ interface User {
   last_login?: string
 }
 
-export default function AdminUsers() {
+function AdminUsers() {
   const [users] = useState<User[]>([
     {
       id: '1',
@@ -93,3 +94,7 @@ export default function AdminUsers() {
     </div>
   )
 }
+
+export const Route = createFileRoute('/admin/users')({
+  component: AdminUsers,
+})

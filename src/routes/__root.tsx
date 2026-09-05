@@ -1,6 +1,13 @@
-import { Outlet } from '@tanstack/react-router'
-import AdminLayout from './layout'
+import { createRootRoute, Outlet } from '@tanstack/react-router'
 
-export default function AdminRoot() {
-  return <AdminLayout />
+function RootLayout() {
+  return (
+    <div className="min-h-screen bg-white">
+      <Outlet />
+    </div>
+  )
 }
+
+export const Route = createRootRoute({
+  component: RootLayout,
+})

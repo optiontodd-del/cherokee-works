@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
+import { createFileRoute } from '@tanstack/react-router'
 
-export default function AdminAnalytics() {
+function AdminAnalytics() {
   const [stats, setStats] = useState<any>(null)
   const [loading, setLoading] = useState(true)
 
@@ -133,3 +134,7 @@ function AnalyticRow({ label, value, decimals = 0 }: AnalyticRowProps) {
     </div>
   )
 }
+
+export const Route = createFileRoute('/admin/analytics')({
+  component: AdminAnalytics,
+})
